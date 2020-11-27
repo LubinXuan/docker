@@ -20,7 +20,8 @@ RUN apk add --no-cache --virtual .build-deps \
 		libqrencode \
 	&& cd /qrencode \
 	&& make && make install \
-	&& rm -rf /qrencode
+	&& rm -rf /qrencode \
+	&& apk del .build-deps
 
 CMD ["/usr/local/openresty/bin/openresty", "-g", "daemon off;"]
 STOPSIGNAL SIGQUIT
