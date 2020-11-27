@@ -88,6 +88,8 @@ RUN apk add --no-cache --virtual .build-deps \
         geoip-dev \
         libxslt-dev \
         linux-headers \
+		libpng-dev \
+		libqrencode-dev \
         make \
         perl-dev \
         readline-dev \
