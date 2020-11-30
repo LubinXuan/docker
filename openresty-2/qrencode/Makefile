@@ -35,7 +35,7 @@ INSTALL ?= install
 all: qrencode.so
 
 qrencode.so: qrencode.c
-	$(CC) $(LDFLAGS) $(CFLAGS) -o $@ $^
+	$(CC) $(LDFLAGS) -o $@ $^ $(CFLAGS)
 
 install:
 	$(INSTALL) -d $(LUA_LIB_DIR)
