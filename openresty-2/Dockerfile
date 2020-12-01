@@ -5,9 +5,7 @@ COPY qrencode /qrencode
 RUN apk add --no-cache --virtual .build-deps \
         build-base \
         coreutils \
-        curl \
         gd-dev \
-        geoip-dev \
         libxslt-dev \
         linux-headers \
 		libpng-dev \
@@ -19,7 +17,9 @@ RUN apk add --no-cache --virtual .build-deps \
 		libpng \
 		libqrencode \
 	&& cd /qrencode \
-	&& make && make install
+	&& make && make install \
+	&& apk del .build-deps \
+	&& rm -rf /qrencode
 
 CMD ["/usr/local/openresty/bin/openresty", "-g", "daemon off;"]
 STOPSIGNAL SIGQUIT
